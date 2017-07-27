@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Calculator</title>
+</head>
+<body>
+<h1>Welcome to my Spring calculator!</h1>
+
+<form action="/">
+    <input type="tel" name="number1"/>
+    <select name="operator">Operator
+        <option value="+">Add</option>
+        <option value="-">Subtract</option>
+        <option value="*">Multiply</option>
+        <option value="/">Divide</option>
+    </select>
+    <input type="tel" name="number2" />
+    <input type="submit" value="Calculate"/>
+
+    <h3 th:text="${calculatedTotal}"></h3>
+</form>
+</body>
+</html>
