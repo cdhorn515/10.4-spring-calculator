@@ -10,15 +10,16 @@
 <form action="/">
     <input type="tel" name="number1"/>
     <select name="operator">Operator
-        <option value="+">Add</option>
-        <option value="-">Subtract</option>
-        <option value="*">Multiply</option>
-        <option value="/">Divide</option>
+        <option value="+">Plus</option>
+        <option value="-">Minus</option>
+        <option value="*">Times</option>
+        <option value="/">Divided by</option>
     </select>
     <input type="tel" name="number2" />
     <input type="submit" value="Calculate"/>
 
-    <h3 th:text="${calculatedTotal}"></h3>
 </form>
+<h3 th:text="${calculatedTotal}"></h3>
+
 </body>
 </html>

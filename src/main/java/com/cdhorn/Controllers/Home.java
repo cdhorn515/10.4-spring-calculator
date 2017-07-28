@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Home {
-    private int total;
-    private String totalAsString;
-    private int operandOne;
-    private int operandTwo;
+    private double operandOne;
+    private double operandTwo;
+
+    Calculations calculations = new Calculations();
 
     @RequestMapping("/")
     public String index(@RequestParam(value = "number1", required = false) String number1,
@@ -18,17 +18,18 @@ public class Home {
                         @RequestParam(value = "operator", required = false) String operator,
                         ModelMap model) {
         try {
-        operandOne = Integer.parseInt(number1);
-        operandTwo = Integer.parseInt(number2);
+        operandOne = Double.parseDouble(number1);
+        operandTwo = Double.parseDouble(number2);
 
         System.out.println(number1);
         System.out.println(number2);
         System.out.println(operator);
-
-        calculate(operandOne, operandTwo, operator);
-
-        model.addAttribute("calculatedTotal", totalAsString);
+        String calculate = calculations.calculate(operandOne, operandTwo, operator);
+        String total = calculations.getTotalAsString();
+        model.addAttribute("calculatedTotal", number1 + " " + operator + " " +  number2 + " = " + total);
         } catch (NumberFormatException ex) {
+            ex.printStackTrace();
+        } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
 
@@ -36,24 +37,4 @@ public class Home {
     }
 
 
-    public String calculate(int operandOne, int operandTwo, String operator) {
-
-        switch (operator) {
-            case "+":
-                total = operandOne + operandTwo;
-
-                break;
-            case "-":
-                total = operandOne - operandTwo;
-                break;
-            case "*":
-                total = operandOne * operandTwo;
-                break;
-            case "/":
-                total = operandOne / operandTwo;
-                break;
-        }
-        totalAsString = String.format("%d", total);
-        return totalAsString;
-    }
 }

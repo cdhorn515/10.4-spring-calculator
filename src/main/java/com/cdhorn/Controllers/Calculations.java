@@ -1,35 +1,43 @@
 package com.cdhorn.Controllers;
 
 
+import java.text.DecimalFormat;
+
 public class Calculations {
-//    int total;
-//    String totalAsString;
-//    int operandOne;
-//    int operandTwo;
-//
-//    operandOne = Integer.parseInt(number1);
-//    operandTwo = Integer.parseInt(number2);
-//
-//        switch (operator) {
-//        case "+":
-//            total = operandOne + operandTwo;
-//            break;
-//        case  "-":
-//            total = operandOne - operandTwo;
-////                 totalAsString = String.format("%d", total);
-////                System.out.println(totalAsString);
-//            break;
-//        case "*":
-//            total = operandOne * operandTwo;
-//            break;
-//        case "/":
-//            total = operandOne / operandTwo;
-//            break;
-////                return totalAsString;
-//        totalAsString = String.format("%d", total);
-//        System.out.println(totalAsString);
-//
-//
+
+    private double total;
+    private String totalAsString;
+    DecimalFormat df = new DecimalFormat("#.##");
+
+    public String getTotalAsString() {
+        return totalAsString;
+    }
+
+    public Calculations() {
+    }
+
+    public String calculate(double operandOne, double operandTwo, String operator) {
+
+        switch (operator) {
+            case "+":
+                total = operandOne + operandTwo;
+
+                break;
+            case "-":
+                total = operandOne - operandTwo;
+                break;
+            case "*":
+                total = operandOne * operandTwo;
+                break;
+            case "/":
+                total = operandOne / operandTwo;
+                break;
+        }
+        df.format(total);
+        totalAsString = Double.toString(total);
+        return totalAsString;
+    }
+
     }
 
 
