@@ -7,6 +7,7 @@ public class Calculations {
 
     private double total;
     private String totalAsString;
+    private double limitDecimalTotal;
     DecimalFormat df = new DecimalFormat("#.##");
 
     public String getTotalAsString() {
@@ -33,8 +34,8 @@ public class Calculations {
                 total = operandOne / operandTwo;
                 break;
         }
-        df.format(total);
-        totalAsString = Double.toString(total);
+        limitDecimalTotal = Double.parseDouble(df.format(total));
+        totalAsString = Double.toString(limitDecimalTotal);
         return totalAsString;
     }
 
