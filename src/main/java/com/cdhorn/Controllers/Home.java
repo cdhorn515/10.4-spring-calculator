@@ -21,11 +21,13 @@ public class Home {
         operandOne = Double.parseDouble(number1);
         operandTwo = Double.parseDouble(number2);
 
-        System.out.println(number1);
-        System.out.println(number2);
-        System.out.println(operator);
-        String calculate = calculations.calculate(operandOne, operandTwo, operator);
+            System.out.println(number1);
+            System.out.println(operator);
+            System.out.println(number2);
+
+        calculations.calculate(operandOne, operandTwo, operator);
         String total = calculations.getTotalAsString();
+
         model.addAttribute("calculatedTotal", number1 + " " + operator + " " +  number2 + " = " + total);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
