@@ -8,7 +8,7 @@
 <h1>Welcome to my Spring calculator!</h1>
 
 <form action="/">
-    <input type="tel" name="number1"/>
+    <input type="tel" name="number1" th:value="${total}"/>
     <select name="operator">Operator
         <option value="+">Plus</option>
         <option value="-">Minus</option>
