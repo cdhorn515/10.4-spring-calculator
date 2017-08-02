@@ -28,6 +28,8 @@ public class Home {
         calculations.calculate(operandOne, operandTwo, operator);
         String total = calculations.getTotalAsString();
 
+        model.addAttribute("total", total);
+
         model.addAttribute("calculatedTotal", number1 + " " + operator + " " +  number2 + " = " + total);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
