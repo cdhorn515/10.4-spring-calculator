@@ -4,38 +4,48 @@ package com.cdhorn.Models;
 import javax.persistence.*;
 
 @Entity
+@NamedNativeQuery(name = "Operation.findByCalculatorUser",
+        query = "SELECT * FROM operation i WHERE i.calculatoruser = 'calculatoruser'",
+        resultClass = Operation.class
+)
 @Table(name= "operation")
 public class Operation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private double operandOne;
-    private double operandTwo;
+    private double operandone;
+    private double operandtwo;
     private String operator;
-    private double limitDecimalTotal;
+    private String total;
 
-    @ManyToOne
-    @JoinColumn(name = "calculatoruser_id")
-    private CalculatorUser calculatorUsers;
+    private String calculatoruser;
 
     public Operation() {
     }
 
-    public double getOperandOne() {
-        return operandOne;
+    public Operation(double operandone, String operator, double operandtwo, String total, String calculatoruser) {
+        this.operandone = operandone;
+        this.operandtwo = operandtwo;
+        this.operator = operator;
+        this.total = total;
+        this.calculatoruser = calculatoruser;
     }
 
-    public void setOperandOne(double operandOne) {
-        this.operandOne = operandOne;
+    public double getOperandone() {
+        return operandone;
     }
 
-    public double getOperandTwo() {
-        return operandTwo;
+    public void setOperandone(double operandone) {
+        this.operandone = operandone;
     }
 
-    public void setOperandTwo(double operandTwo) {
-        this.operandTwo = operandTwo;
+    public double getOperandtwo() {
+        return operandtwo;
+    }
+
+    public void setOperandtwo(double operandTwo) {
+        this.operandtwo = operandtwo;
     }
 
     public String getOperator() {
@@ -46,20 +56,20 @@ public class Operation {
         this.operator = operator;
     }
 
-    public double getLimitDecimalTotal() {
-        return limitDecimalTotal;
+    public String total() {
+        return total;
     }
 
-    public void setLimitDecimalTotal(double limitDecimalTotal) {
-        this.limitDecimalTotal = limitDecimalTotal;
+    public void total(String total) {
+        this.total = total;
     }
 
-    public CalculatorUser getCalculatorUsers() {
-        return calculatorUsers;
+    public String getCalculatoruser() {
+        return calculatoruser;
     }
 
-    public void setCalculatorUsers(CalculatorUser calculatorUsers) {
-        this.calculatorUsers = calculatorUsers;
+    public void setCalculatoruser(String calculatoruser) {
+        this.calculatoruser = calculatoruser;
     }
 
     public int getId() {
@@ -69,4 +79,6 @@ public class Operation {
     public void setId(int id) {
         this.id = id;
     }
+
+
 }

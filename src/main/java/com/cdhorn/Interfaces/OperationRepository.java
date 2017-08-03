@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OperationRepository extends CrudRepository<Operation, Long> {
+
+    Operation findByCalculatorUser(String calculatoruser);
 }

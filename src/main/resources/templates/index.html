@@ -5,9 +5,21 @@
     <title>Calculator</title>
 </head>
 <body>
+
+<div class="container">
+
+
+
 <h1>Welcome to my Spring calculator!</h1>
 
-<form action="/">
+    <h3>Please enter your name below:</h3>
+
+    <form action="/" method="post">
+
+        <label for="calculatoruser">Name:</label>
+        <input type="text" id="calculatoruser" name="calculatoruser"/>
+
+<div>
     <input type="tel" name="number1" th:value="${total}"/>
     <select name="operator">Operator
         <option value="+">Plus</option>
@@ -18,8 +30,15 @@
     <input type="tel" name="number2" />
     <input type="submit" value="Calculate"/>
 
-</form>
+
+
+</div>
+    </form>
+
 <h3 th:text="${calculatedTotal}"></h3>
 
+
+
+</div>
 </body>
 </html>

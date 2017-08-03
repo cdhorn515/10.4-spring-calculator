@@ -39,6 +39,9 @@ public class Calculations {
         return totalAsString;
     }
 
+    public double getLimitDecimalTotal() {
+        return limitDecimalTotal;
     }
+}
 
 
