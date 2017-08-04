@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Band detail page</title>
+    <span th:include="includes :: css"></span>
+</head>
+<body>
+
+<div th:include="navbar :: navbar"></div>
+
+<div class="container">
+
+    <div class="operation">
+        <h3 th:each="operation : ${operations}" th:text="${operation.calculatoruser}"></h3>
+        <span th:text="${operation.operandone}"> </span>
+        <span th:text="${operation.operator}"> </span>
+        <span th:text="${operation.operandtwo}"> = </span>
+        <span th:text="${operation.total}"></span>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Band detail page</title>
+    <span th:include="includes :: css"></span>
+</head>
+<body>
+
+<div th:include="navbar :: navbar"></div>
+
+<div class="container">
+
+
+    <form action="/operations/">
+        <label for="calculatoruser">Enter your name and click Submit to see the operations you've saved:</label>
+        <input type="text" name="calculatoruser" id="calculatoruser"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+
+</div>
+</body>
+</html>

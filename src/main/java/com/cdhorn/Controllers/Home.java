@@ -3,16 +3,12 @@ package com.cdhorn.Controllers;
 import com.cdhorn.Interfaces.OperationRepository;
 import com.cdhorn.Models.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.persistence.EntityManager;
-import java.util.List;
 
 @Controller
 public class Home {
@@ -55,16 +51,18 @@ public class Home {
             ex.printStackTrace();
         }
 
-        return "redirect:/{calculatoruser}";
+        return "index";
     }
 
-    @RequestMapping("/{calculatoruser}")
-    public String showOperations(@RequestBody("calculatoruser") String calculatoruser, Model model) {
-        Query query = EntityManager.createNamedQuery("findByCalculatorUser", List<Operation> calculatoruser);
-//        Query q = em.createNamedQuery("selectAuthorValue");
-//        List<AuthorValue> authors = q.getResultList();
-        Operation.findByCalculatorUser(calculatoruser);
-//List<Email> findByEmailIdInAndPincodeIn(List<String> emails, List<String> pinCodes);
+    @RequestMapping("/search")
+    public String searchForOperations() {
+        return "search";
+    }
+
+    @RequestMapping(value = "/operations", method = RequestMethod.GET)
+    public String showOperations(@RequestParam("calculatoruser") String calculatoruser, Model model) {
+        Iterable<Operation> operations = operationRepo.findAllByCalculatoruser(calculatoruser);
+        model.addAttribute("operations", operations);
 
         return "userOperations";
     }
