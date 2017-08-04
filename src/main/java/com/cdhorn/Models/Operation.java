@@ -56,11 +56,11 @@ public class Operation {
         this.operator = operator;
     }
 
-    public String total() {
+    public String getTotal() {
         return total;
     }
 
-    public void total(String total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 

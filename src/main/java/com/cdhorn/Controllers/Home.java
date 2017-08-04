@@ -63,6 +63,7 @@ public class Home {
     public String showOperations(@RequestParam("calculatoruser") String calculatoruser, Model model) {
         Iterable<Operation> operations = operationRepo.findAllByCalculatoruser(calculatoruser);
         model.addAttribute("operations", operations);
+        model.addAttribute("calculatoruser", calculatoruser);
 
         return "userOperations";
     }
