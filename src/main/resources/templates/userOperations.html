@@ -11,12 +11,11 @@
 
 <div class="container">
 
-    <div class="operation">
-        <h3 th:each="operation : ${operations}" th:text="${operation.calculatoruser}"></h3>
-        <span th:text="${operation.operandone}"> </span>
-        <span th:text="${operation.operator}"> </span>
-        <span th:text="${operation.operandtwo}"> = </span>
-        <span th:text="${operation.total}"></span>
+    <h3 th:inline="text">[[${calculatoruser}]], here are the operations you've saved:</h3>
+
+    <div class="operation" th:each="operation : ${operations}" th:inline="text">
+        <p>[[${operation.operandone}]] [[${operation.operator}]] [[${operation.operandtwo}]] = [[${operation.total}]]</p>
+
     </div>
 
 </div>

@@ -3,11 +3,7 @@ package com.cdhorn.Models;
 
 import javax.persistence.*;
 
-@Entity
-@NamedNativeQuery(name = "Operation.findByCalculatorUser",
-        query = "SELECT * FROM operation i WHERE i.calculatoruser = 'calculatoruser'",
-        resultClass = Operation.class
-)
+
 @Table(name= "operation")
 public class Operation {
 
